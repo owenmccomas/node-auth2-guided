@@ -10,6 +10,7 @@ const restricted = (req, res, next) => {
       } else {
         req.decodedJwt = decoded
         console.log(decoded)
+        next()
       }
     })
     } else {
