@@ -1,11 +1,14 @@
 const path = require('path')
 const express = require('express')
 const cors = require('cors')
+const bodyParser = require('body-parser');
+
 
 const authRouter = require('./auth/auth-router.js')
 const usersRouter = require('./users/users-router.js')
 
 const server = express()
+server.use(bodyParser.urlencoded({ extended: false }))
 
 server.use(express.static(path.join(__dirname, '../client')))
 server.use(express.json())
